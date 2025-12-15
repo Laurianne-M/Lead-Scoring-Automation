@@ -71,31 +71,11 @@ def classify_lead(rounded_score : int, config : dict) -> str:
 
 
 
-    
-    #print(f'{page_view_weight} \n {email_opens_weight}\n {time_on_site_weight}')
-
-
 df_processed = load_lead()
 config = load_config()
 
-for _, lead in df_processed.iterrows():   # lead is a Series here
+for _, lead in df_processed.iterrows():   
     rounded_score = calculate_lead_score(lead, config)
     print(f'{rounded_score}')
     classification = classify_lead(rounded_score, config)
     print(f'{classification}')
-
-    
-
-"""
-def score_data(df_processed):
-    with open(processed_path, 'r') as file:
-        file_reader = csv.DictReader(file)
-
-        for line in file_reader:
-            print(line)
-
-
-        
-
-score_data(df_processed)
-"""

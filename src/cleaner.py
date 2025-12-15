@@ -7,7 +7,7 @@ from validate_email import validate_email
 
 
 
-df_raw = load_file("../data/raw/lead_list_100.csv")
+df_raw = load_file("../data/raw/lead_list.csv")
 df_processed = load_file("../data/processed/processed_lead_list.csv")
 
 
