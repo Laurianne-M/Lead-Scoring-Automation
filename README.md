@@ -55,16 +55,62 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Load and Clean Leads
+### Testing with Sample Data
+
+To quickly test the program, you can use the example CSV file provided in the repository:
+
+```bash
+./data/raw/lead_list.csv
+```
+This file contains sample lead data and follows the expected input format.
+
+### Using Your Own Data
+
+You may replace the sample file with your own lead data.  
+However, **your CSV must keep the same column structure and naming**, as the scoring logic depends on these fields.
+
+**Required CSV columns:**
+
+- `Name`
+- `Email`
+- `Lead Source`
+- `Activity`
+- `Pageviews`
+- `Email Opens`
+- `Time on Site (sec)`
+
+Example header row:
+
+```csv
+Name,Email,Lead Source,Activity,Pageviews,Email Opens,Time on Site (sec)
+```
+
+⚠️ Column names are case-sensitive and must match exactly.
+
+⚠️ Important Notes About CSV Files
+
+The repository includes two CSV files that are **managed automatically by the program**:
+
+- `./data/processed/processed_lead_list.csv`
+- `./data/output/lead_scores.csv`
+
+**Do not modify these files manually.**  
+
+- These files are **automatically populated and updated** when you run the program.  
+- Manual changes may cause **data inconsistencies or errors** during processing or scoring.
+
+
+
+1. **Load and Clean Leads**
 
 ```bash
 python cleaner.py
 ```
-- Cleans raw lead CSV files from `data/raw` folder
+- Cleans raw lead CSV file from `./data/raw` folder
 - Handles missing data and duplicates
-- Prepares a processed file for scoring inside `data/processed` folder
+- Prepares a processed file for scoring inside `./data/processed` folder
 
-2. Score and Classify Leads
+2. **Score and Classify Leads**
 
 ```bash
 python scorer.py
@@ -72,7 +118,7 @@ python scorer.py
 - Applies scoring rules from settings.yaml
 - Adds `lead_score` and `lead_class` columns
 
-3. Export Reports
+3. **Export Reports**
 
 ```bash
 python exporter.py
