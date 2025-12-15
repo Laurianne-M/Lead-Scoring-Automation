@@ -1,0 +1,34 @@
+# Behavioral Scoring (e.g: +2 per pageviews)
+score_rules:
+  pageviews:
+    weight: 2
+  email_opens:
+    weight: 3
+  time_on_site_seconds:
+    weight: 0.2
+
+  #Intent Action (e.g: if the user requested a demo -> +20 points)
+  activity_scores:
+    requested_demo: 20
+    viewed_page_price: 15
+    signed_up: 10
+    downloaded_ebook: 5
+    clicked_email: 3
+    visited_landing_page: 1
+
+# Source-based Scoring (e.g: a linkedin lead have more value than a facebook ads lead)
+source_scores:
+  linkedin: 10 
+  google_ads: 8
+  facebook_ads: 6
+  tiktok_ads: 5
+  organic_search: 4
+  referral: 7 
+
+# Lead qualification thresholds (e.g: score >= 50 -> hot lead)
+thresholds:
+  hot_lead: 50
+  warm_lead: 25
+  cold_lead: 0 
+
+  
